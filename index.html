@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eccb15858b.js" crossorigin="anonymous"></script>
     <meta name="description" content="Spa">
     <title>Spa</title>
     <style>
@@ -52,6 +53,12 @@ body {
     gap: 20px;
 }
 
+#instagram{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
 .nav-links li {
     position: relative;
 }
@@ -64,7 +71,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #23bd19;
+    color: #A1D1B1;
 }
 
 .menu-toggle {
@@ -77,7 +84,7 @@ body {
 }
 
 .cta-button {
-    background: #23bd19;
+    background: #A1D1B1;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -86,7 +93,7 @@ body {
 }
 
 .cta-button:hover {
-    background: #096802;
+    background: #A1D1B1;
 }
 
 /* Hero Section */
@@ -111,7 +118,7 @@ body {
 }
 
 .hero-content .cta-button {
-    background: #23bd19;
+    background: #A1D1B1;
 }
 
 /* Services Section */
@@ -235,7 +242,7 @@ body {
     display: block;
     margin-top: 20px;
     font-weight: bold;
-    color: #037103;
+    color: #A1D1B1;
 }
 
 /* Contact */
@@ -266,7 +273,7 @@ body {
 }
 
 .logo{
-    color: #23bd19;
+    color: #A1D1B1;
 }
 
 /* Mobile View Styling */
@@ -274,7 +281,7 @@ body {
 
 /* Hero */
 .hero {
-    /*background-image: url('https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fmobile_view_bg_image.jpeg?alt=media&token=a6f1fd1a-b09d-4a56-82b4-6174bbbb0b51');*/
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.37%20PM.jpeg?alt=media&token=6dc6a9fa-f6e3-407d-986d-059a279ae0fb');
     background-size: cover;
     background-position: center;
     height: 90vh;
@@ -284,6 +291,32 @@ body {
     text-align: center;
     color: white;
 }
+
+#logo_text{
+    position: relative;
+    left:-5%;
+    font-size: 22px;
+    color: #A1D1B1;
+}
+
+
+#call i{
+    color: black;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+#call_section{
+    position: fixed;
+    bottom: 30px;
+    right: 28px;
+    text-align: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #A1D1B1;
+}
+  
 
 #home h2 {
     font-size: 2.5rem;
@@ -322,15 +355,32 @@ body {
     margin-top: 15px;
 }
 
-.logo {
-    font-size: 22px;
+.logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+.logo{
+    font-size: 23px;
 }
 
 }
 
 @media (min-width: 768px) {
+
+.logo img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+#logo_text{
+    position: relative;
+    right:22%;
+}
+
 .hero {
-    /*background-image: url('https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fbg_1.png?alt=media&token=24180952-1fcc-47d5-becb-b24beb9d4021');*/
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fbg_1.png?alt=media&token=24180952-1fcc-47d5-becb-b24beb9d4021');
     background-size: cover;
     background-position: center;
     height: 90vh;
@@ -340,12 +390,31 @@ body {
     text-align: center;
     color: white;
 }
+
+#call i{
+    color: black;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+#call_section{
+    position: fixed;
+    bottom: 30px;
+    right: 28px;
+    text-align: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #A1D1B1;
+}
+
 }
 
 
-
-
-    </style>
+#services_btn{
+    color: #191919;
+}
+  </style>
      <script src="https://kit.fontawesome.com/eccb15858b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
@@ -353,10 +422,13 @@ body {
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
                 <div class="logo-container">
-                    <h1 class="logo">The Spas</h1>
+                    <h1 class="logo"><img src="logo.jpeg" alt=""></h1>
                 </div>
+                
+                <h1 id="logo_text">The Rafi Spa</h1>
+
+                <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Our Services</a></li>
@@ -364,17 +436,13 @@ body {
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="tel:6374145755" class="cta-button">Call</a>
             </nav>
         </div>
     </header>
 
-    <a id="instagram" href="https://www.instagram.com/thespas.india/">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
 
 
-
+    <div id="call_section"><a href="tel:6374145755" id="call"><i class="fa-solid fa-phone"></i></a></div>
 
     <section id="home" class="hero">
         <div class="hero-content">
@@ -389,27 +457,27 @@ body {
             <h2 class="section-title">Our Premium Services</h2>
             <div class="services-grid">
                 <div class="service-box">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fclassic_massage.jpeg?alt=media&token=79680bd5-62ab-42fb-ac08-679cb03f4271" alt="Nail Treatment">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.38%20PM%20(1).jpeg?alt=media&token=aabeed20-da94-44ed-903b-57e597dade73" alt="Nail Treatment">
                     <h3>Classic Massage</h3>
                     <p>Relax and rejuvenate with our classic massage, easing tension and enhancing wellness.</p>
                 </div>
                 <div class="service-box">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fpremium_massage.jpeg?alt=media&token=f18bc152-d385-4300-8e63-9833aa47026d" alt="Spa Treatment">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.38%20PM.jpeg?alt=media&token=7e502324-7ae6-435c-9d22-e15b58423039" alt="Spa Treatment">
                     <h3>Premium Massage</h3>
                     <p>Experience ultimate relaxation with our premium massage, tailored for luxurious rejuvenation and comfort.</p>
                 </div>
                 <div class="service-box">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/parlour_services_img%2Ftraditional_massage_pic.jpg?alt=media&token=6ae81d67-2bf4-460b-89f2-335782637ba1" alt="Massage">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.37%20PM.jpeg?alt=media&token=6dc6a9fa-f6e3-407d-986d-059a279ae0fb" alt="Massage">
                     <h3>Traditional Massage</h3>
                     <p>Reconnect with timeless techniques in our traditional massage, promoting balance and deep relaxation.</p>
                 </div>
                 <div class="service-box">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWcoVdIR9Q-Yd5XALZZKWutwBndhSbQKnM4A&s" alt="Facial">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.40%20PM%20(1).jpeg?alt=media&token=bdf1776a-3204-44b5-8a13-4cb84d2034fd" alt="Facial">
                     <h3>Swedish Massage</h3>
                     <p>Unwind with our Swedish massage, relieving stress and boosting circulation for ultimate relaxation.</p>
                 </div>
                 <div class="service-box">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fdeep_tissue_massage.jpeg?alt=media&token=dcf5fc8f-bc1e-4bc5-995b-4db3046724cf" alt="Nail Treatment">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.39%20PM.jpeg?alt=media&token=3d2fd0fd-9007-4d97-bac5-96807d1d4e78" alt="Nail Treatment">
                     <h3>Deep Tissue Massage</h3>
                     <p>Relieve chronic tension with our deep tissue massage, targeting deep layers for relaxation.</p>
                 </div>
@@ -424,12 +492,12 @@ body {
                     <p>Ease pain and tension with our trigger point massage, targeting specific muscle knots.</p>
                 </div>
                 <div class="service-box">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fhot_stone_massage.jpeg?alt=media&token=fbd2ab61-3195-44ab-84f2-ec5e7a269bb5" alt="Facial">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.39%20PM%20(1).jpeg?alt=media&token=122cad49-e2f1-4a19-976b-18e471f50b49" alt="Facial">
                     <h3>Hot Stone Massage</h3>
                     <p>Experience deep relaxation with our hot stone massage, easing tension and restoring balance.</p>
                 </div>
                 <div class="service-box">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2F2.jpg?alt=media&token=ca8cf20f-7b7f-43ba-8489-28cef87567ef" alt="Nail Treatment">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.40%20PM.jpeg?alt=media&token=bd704a13-f6fe-48f2-a635-85cbabca5118" alt="Nail Treatment">
                     <h3>Relaxation Massage</h3>
                     <p>Melt away stress with our relaxation massage, promoting calmness and overall well-being.</p>
                 </div>
@@ -494,6 +562,7 @@ body {
 
     <footer class="footer">
         <div class="container">
+            <a  id="instagram" href="https://www.instagram.com/therafispa/"><i class="fa-brands fa-instagram"></i>&nbsp;therafispa</a>
             <p>&copy; 2024 The Spas. All Rights Reserved.</p>
             <a href="#home" class="back-to-top">Back to Top</a>
             <br>
@@ -555,29 +624,29 @@ function descriptionHeader(textContent){
     descriptionHeader("Your Luxury Spa Experience Awaits")
 
 
-    // document.addEventListener('contextmenu', function(e) {
-    //   e.preventDefault();
-    // });
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
 
-    // // Disable DevTools Shortcuts
-    // document.addEventListener('keydown', function(e) {
-    //   // Disable F12
-    //   if (e.keyCode === 123) {
-    //     e.preventDefault();
-    //   }
+    // Disable DevTools Shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Disable F12
+      if (e.keyCode === 123) {
+        e.preventDefault();
+      }
 
-    //   // Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
-    //   if (e.ctrlKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 85 || e.keyCode === 83)) {
-    //     e.preventDefault();
-    //     alert('This action is disabled on this site.');
-    //   }
+      // Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
+      if (e.ctrlKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 85 || e.keyCode === 83)) {
+        e.preventDefault();
+        alert('This action is disabled on this site.');
+      }
 
-    //   // Disable Ctrl+P (Print)
-    //   if (e.ctrlKey && e.keyCode === 80) {
-    //     e.preventDefault();
-    //     alert('Printing is disabled on this site.');
-    //   }
-    // });
+      // Disable Ctrl+P (Print)
+      if (e.ctrlKey && e.keyCode === 80) {
+        e.preventDefault();
+        alert('Printing is disabled on this site.');
+      }
+    });
 
 
 
