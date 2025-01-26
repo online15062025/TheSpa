@@ -3,454 +3,926 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rafispa</title>
     <script src="https://kit.fontawesome.com/eccb15858b.js" crossorigin="anonymous"></script>
-    <meta name="description" content="Spa">
-    <title>Spa</title>
+    <!-- <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="spa.css"> -->
+
     <style>
-       /* General Reset */
-* {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Body Styling */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #333;
-    color: #f9f9f9;
-    overflow-x: hidden;
-}
+/* Header section */
 
-/* Header */
-.header {
-    background: #292b2c;
-    color: white;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.container {
-    width: 90%;
-    margin: auto;
-    max-width: 1200px;
-}
-
-.navbar {
+header{
+    width: 100%; 
+    max-width: 100%;
+    padding-left: 100px;
+    height: 50px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1000;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.instagram{
-    color: white;
-    font-size: 18px;
+header nav a{
+    color: #fff;
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: 0.2s;
     text-decoration: none;
 }
 
-.nav-links li {
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+
+.call_btn{
+    background-color: #14ff72cb;
+}
+
+a.active{
+    background: #14ff72cb;
+    border-radius: 2px;
+}
+
+a:hover{
+    background: #14ff72cb;
+    border-radius: 2px;
+}
+
+/* Header section */
+
+
+
+/* carousel */
+
+.carousel{
+    width: 100vw;
+    height: 100vh;
+    margin-top: -50px;
+    overflow: hidden;
     position: relative;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease;
+.carousel .list .item{
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
 }
 
-.nav-links a:hover {
-    color: #A1D1B1;
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.menu-toggle {
+.carousel .list .item:nth-child(3){
+    left: 67%;
+}
+
+.carousel .list .item:nth-child(4){
+    left: calc(67% + 200px);
+}
+
+.carousel .list .item:nth-child(5){
+    left: calc(67% + 400px);
+}
+
+.carousel .list .item:nth-child(6){
+    left: calc(67% + 600px);
+}
+
+.carousel .list .item:nth-child(n+7){
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+
+
+
+
+.list .item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
     display: none;
-    font-size: 24px;
-    background: none;
+}
+
+.list .item:nth-child(2) .content{
+    display: block;
+}
+
+.content .title{
+    font-size: 100px;
+    text-transform: uppercase;
+    color: #14ff72cb;
+    font-weight: bold;
+    line-height: 1;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content .name{
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+.content .btn{
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards;
+}
+
+.content .btn button{
+    padding: 10px 20px;
     border: none;
-    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #fff;
+}
+
+.content .btn button:nth-child(1){
+    margin-right: 15px;
+}
+
+.content .btn button:nth-child(2){
+    background: transparent;
+    color: #14ff72cb;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.content .btn button:nth-child(2):hover{
+    background-color: #14ff72cb;
+    color: #fff;
+    border-color: #14ff72cb;
+}
+
+
+@keyframes animate {
+    
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* Carousel */
+
+
+
+
+
+
+/* next prev arrows */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
     cursor: pointer;
 }
 
-.cta-button {
-    background: #A1D1B1;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-    background: #A1D1B1;
-}
-
-/* Hero Section */
-.hero {
-    background: url('https://source.unsplash.com/1600x900/?spa') no-repeat center center/cover;
-    height: 100vh;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.hero-content .cta-button {
-    background: #A1D1B1;
-}
-
-/* Services Section */
-.services {
-    background: #292b2c;
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.services .section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #faf7f7;
-}
-
-.gallery .section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #faf7f7;
-    text-align: center;
-}
-
-.reviews .section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #faf7f7;
-    text-align: center;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.service-box {
-    background-color: #333;
-    color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.service-box img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.service-box:hover {
-    transform: scale(1.05);
-}
-
-/* Gallery Section */
-.gallery {
-    background-color: #202020;
-    color: white;
-    padding: 60px 20px;
-}
-
-.gallery .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-item h3 {
-    text-align: center;
-    color: rgb(222, 217, 217);
-    
-}
-
-.reviews {
-    padding: 80px 0;
-    background-color: #202020;
-    color: white;
-}
-
-.review-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.review-box {
-    background-color: #333;
-    color: #f9f9f9;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.review-box p {
-    font-size: 1.1rem;
-}
-
-.review-box span {
-    display: block;
-    margin-top: 20px;
-    font-weight: bold;
-    color: #A1D1B1;
-}
-
-/* Contact */
-.contact {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.contact p {
-    font-size: 1.1rem;
+.arrows button:hover{
+    background: #fff;
+    color: #000;
 }
 
 
-/* Footer */
-.footer {
-    background-color: #202020;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.back-to-top {
-    text-decoration: none;
-    color: white;
-    margin-top: 10px;
-    display: block;
-    font-size: 1rem;
-}
-
-.logo{
-    color: #A1D1B1;
-}
-
-/* Mobile View Styling */
-@media (max-width: 768px) {
-
-/* Hero */
-.hero {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.37%20PM.jpeg?alt=media&token=6dc6a9fa-f6e3-407d-986d-059a279ae0fb');
-    background-size: cover;
-    background-position: center;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-#logo_text{
-    position: relative;
-    left:-5%;
-    font-size: 22px;
-    color: #A1D1B1;
-}
-
-
-#call i{
-    color: black;
-    margin-top: 15px;
-    font-size: 20px;
-}
-
-#call_section{
-    position: fixed;
-    bottom: 30px;
-    right: 28px;
-    text-align: center;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: #A1D1B1;
-}
-  
-
-#home h2 {
-    font-size: 2.5rem;
-}
-
-#home p{
-    font-size: 1.2rem;
-}
-
-.menu-toggle {
-    display: block;
-}
-
-.nav-links {
-    display: none;
+/* time running */
+.carousel .timeRunning{
     position: absolute;
-    top: 100%;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #14ff72cb;
     left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #f9f9f9;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
 }
 
-.nav-links.show {
-    display: flex;
-}
-
-.nav-links li {
-    margin: 15px 0;
-}
-
-.cta-button {
-    margin-top: 15px;
-}
-
-.logo img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-}
-.logo{
-    font-size: 23px;
-}
-
-}
-
-@media (min-width: 768px) {
-
-.logo img {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-}
-
-#logo_text{
-    position: relative;
-    right:22%;
-}
-
-.hero {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fbg_1.png?alt=media&token=24180952-1fcc-47d5-becb-b24beb9d4021');
-    background-size: cover;
-    background-position: center;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-#call i{
-    color: black;
-    margin-top: 15px;
-    font-size: 20px;
-}
-
-#call_section{
-    position: fixed;
-    bottom: 30px;
-    right: 28px;
-    text-align: center;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: #A1D1B1;
-}
+@keyframes runningTime {
+    
+    from{width: 0%;}
+    to{width: 100%;}
 
 }
 
 
-#services_btn{
-    color: #191919;
+/* Responsive Design */
+
+@media screen and (max-width: 999px){
+    
+    header{
+        padding-left: 50px;
+    }
+
+    .list .item .content{
+        left: 50px;
+    }
+
+    .content .title, .content .name{
+        font-size: 70px;
+    }
+
+    .content .des{
+        font-size: 16px;
+    }
+
 }
-  </style>
-     <script src="https://kit.fontawesome.com/eccb15858b.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+@media screen and (max-width: 690px){
+    header nav a{
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list .item .content{
+        top: 40%;
+    }
+
+    .content .title, .content .name{
+        font-size: 45px;
+    }
+
+    .content .btn button{
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+    </style>
+
+
+    <style>
+            /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Body Styling */
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #333;
+        color: #f9f9f9;
+        overflow-x: hidden;
+    }
+    
+    /* Header */
+    .header {
+        background: #292b2c;
+        color: white;
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .container {
+        width: 90%;
+        margin: auto;
+        max-width: 1200px;
+    }
+    
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .instagram{
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+    }
+    
+    .nav-links li {
+        position: relative;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        color: #14ff72cb;
+    }
+    
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .cta-button {
+        background: #A1D1B1;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        background: #14ff72cb;
+    }
+    
+    /* Hero Section */
+    .hero {
+        background: url('https://source.unsplash.com/1600x900/?spa') no-repeat center center/cover;
+        height: 100vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-content .cta-button {
+        background: 14ff72cb;
+    }
+    
+    /* Services Section */
+    .services {
+        background: #292b2c;
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+    }
+    
+    .services .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #faf7f7;
+    }
+    
+    .gallery .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #faf7f7;
+        text-align: center;
+    }
+    
+    .reviews .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #faf7f7;
+        text-align: center;
+    }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .service-box {
+        background-color: #333;
+        color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .service-box img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    
+    .service-box:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Gallery Section */
+    .gallery {
+        background-color: #202020;
+        color: white;
+        padding: 60px 20px;
+    }
+    
+    .gallery .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+    
+    .gallery-item h3 {
+        text-align: center;
+        color: rgb(222, 217, 217);
+        
+    }
+    
+    .reviews {
+        padding: 80px 0;
+        background-color: #202020;
+        color: white;
+    }
+    
+    .review-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    
+    .review-box {
+        background-color: #333;
+        color: #f9f9f9;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .review-box p {
+        font-size: 1.1rem;
+    }
+    
+    .review-box span {
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+        color: #14ff72cb;
+    }
+    
+    /* Contact */
+    .contact {
+        padding: 80px 0;
+        text-align: center;
+    }
+    
+    .contact p {
+        font-size: 1.1rem;
+    }
+    
+    
+    /* Footer */
+    .footer {
+        background-color: #202020;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .back-to-top {
+        text-decoration: none;
+        color: white;
+        margin-top: 10px;
+        display: block;
+        font-size: 1rem;
+    }
+    
+    .logo{
+        color: #14ff72cb;
+    }
+    
+    /* Mobile View Styling */
+    @media (max-width: 768px) {
+    
+    /* Hero */
+    .hero {
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/WhatsApp%20Image%202025-01-24%20at%2011.12.37%20PM.jpeg?alt=media&token=6dc6a9fa-f6e3-407d-986d-059a279ae0fb');
+        background-size: cover;
+        background-position: center;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+    
+    #logo_text{
+        position: relative;
+        left:-5%;
+        font-size: 22px;
+        color: #14ff72cb;
+    }
+    
+    
+    #call i{
+        color: black;
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    
+    #call_section{
+        position: fixed;
+        bottom: 30px;
+        right: 28px;
+        text-align: center;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #14ff72cb;
+    }
+      
+    
+    #home h2 {
+        font-size: 2.5rem;
+    }
+    
+    #home p{
+        font-size: 1.2rem;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: #f9f9f9;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links.show {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .cta-button {
+        margin-top: 15px;
+    }
+    
+    .logo img {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+    }
+    .logo{
+        font-size: 23px;
+    }
+    
+    }
+    
+    @media (min-width: 768px) {
+    
+    .logo img {
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+    }
+    
+    #logo_text{
+        position: relative;
+        right:22%;
+    }
+    
+    .hero {
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fbg_1.png?alt=media&token=24180952-1fcc-47d5-becb-b24beb9d4021');
+        background-size: cover;
+        background-position: center;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+    
+    #call i{
+        color: black;
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    
+    #call_section{
+        position: fixed;
+        bottom: 30px;
+        right: 28px;
+        text-align: center;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #14ff72cb;
+    }
+    
+    }
+    
+    #call_section{
+        color: white;
+    }
+    
+    #services_btn{
+        color: #191919;
+    }
+    </style>
+
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo-container">
-                    <h1 class="logo"><img src="https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/logo.jpeg?alt=media&token=165ccc21-5491-457d-9eff-4dbe855ea4c6" alt=""></h1>
-                </div>
-                
-                <h1 id="logo_text">Therafi Spa</h1>
+    
+    <header>
 
-                <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Our Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <a href="" class="active">The Rafi Spa</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
     </header>
-
-
 
     <div id="call_section"><a href="tel:6374145755" id="call"><i class="fa-solid fa-phone"></i></a></div>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2 id="header_text">Your Luxury Spa Experience Awaits</h2>
-            <p id="header_sub_text">Indulge in the finest treatments and the ultimate relaxation at our Spa. Let us pamper you.</p>
-            <a href="#services" id="services_btn" class="cta-button">Explore Our Services</a>
+    <div class="carousel">
+
+        <div class="list">
+
+
+            <div class="item" style="background-image: url(image/2.jpeg);">
+                
+                <div class="content">
+                    <div class="title">Traditional</div>
+                    <div class="name">massage</div>
+                    <div class="des">Reconnect with timeless techniques in our traditional massage, promoting balance and deep relaxation.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(image/1.jpeg);">
+                <div class="content">
+                    <div class="title">classic</div>
+                    <div class="name">massage</div>
+                    <div class="des">Relax and rejuvenate with our classic massage, easing tension and enhancing wellness.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="item" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/parlour_services_img%2Frelaxation_massage_pic.jpg?alt=media&token=ba30d858-8bca-44d9-8aaf-e5adffbfdf56);">
+
+                <div class="content">
+                    <div class="title">Ayurvedic</div>
+                    <div class="name">Massage</div>
+                    <div class="des">Soothe your senses with our aromatherapy massage, blending essential oils for relaxation.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(image/4.jpeg);">
+                
+                <div class="content">
+                    <div class="title">Hot Stone</div>
+                    <div class="name">massage</div>
+                    <div class="des">Experience deep relaxation with our hot stone massage, easing tension and restoring balance.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(image/5.jpeg);">
+                
+                <div class="content">
+                    <div class="title">Leg</div>
+                    <div class="name">massage</div>
+                    <div class="des">Revitalize tired legs with our leg fatigue reliever massage, boosting circulation and soothing muscles.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(image/6.jpeg);">
+                
+                <div class="content">
+                    <div class="title">Relaxation</div>
+                    <div class="name">massage</div>
+                    <div class="des">Melt away stress with our relaxation massage, promoting calmness and overall well-being.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(image/8.jpeg);">
+                
+                <div class="content">
+                    <div class="title">Deep Tissue</div>
+                    <div class="name">masage</div>
+                    <div class="des">Relieve chronic tension with our deep tissue massage, targeting deep layers for relaxation.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(image/9.jpeg);">
+                
+                <div class="content">
+                    <div class="title">Trigger point</div>
+                    <div class="name">massage</div>
+                    <div class="des">Ease pain and tension with our trigger point massage, targeting specific muscle knots.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fbg_1.png?alt=media&token=24180952-1fcc-47d5-becb-b24beb9d4021);">
+                
+                <div class="content">
+                    <div class="title">Premium</div>
+                    <div class="name">massage</div>
+                    <div class="des">Experience ultimate relaxation with our premium massage, tailored for luxurious rejuvenation and comfort.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fhot_stone_massage.jpeg?alt=media&token=fbd2ab61-3195-44ab-84f2-ec5e7a269bb5);">
+                
+                <div class="content">
+                    <div class="title">Swedish</div>
+                    <div class="name">massage</div>
+                    <div class="des">Unwind with our Swedish massage, relieving stress and boosting circulation for ultimate relaxation.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/digitalsignature-af550.appspot.com/o/newpics%2Fmobile_view_bg_image.jpeg?alt=media&token=a6f1fd1a-b09d-4a56-82b4-6174bbbb0b51);">
+                
+                <div class="content">
+                    <div class="title">Head & Foot</div>
+                    <div class="name">massage</div>
+                    <div class="des">Relax and rejuvenate with our head and foot massage, relieving tension and promoting calm.</div>
+                    <div class="btn">
+                        <a href="#services"><button>See More</button></a>
+                        <button class="call_btn"><a href="tel:6374145755">Call</a></button>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-    </section>
+
+        <!--next prev button-->
+        <div class="arrows">
+            <button class="prev"><</button>
+            <button class="next">></button>
+        </div>
+
+
+        <!-- time running -->
+        <div class="timeRunning"></div>
+
+    </div>
 
     <section id="services" class="services">
         <div class="container">
@@ -568,89 +1040,70 @@ body {
             <br>
         </div>
     </footer>
-<script>
-    document.getElementById("header_text").innerHTML = ""
-document.getElementById("header_sub_text").innerHTML = ""
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-    });
-});
+    <!-- <script src="app.js"></script> -->
+    <script>
+        var nextBtn = document.querySelector('.next'),
+        prevBtn = document.querySelector('.prev'),
+        carousel = document.querySelector('.carousel'),
+        list = document.querySelector('.list'), 
+        item = document.querySelectorAll('.item'),
+        runningTime = document.querySelector('.carousel .timeRunning') 
 
-function descriptionSubHeader(textContent){
-    let dhi = 0;
-    let dhtxt = textContent;
-    let dhtxtArr =dhtxt.split(""); 
-    let dhspeed = 50;
-    let dhtemp=" ";
-    function descriptionSubHeaderWrite(){
-        if (dhi < dhtxt.length) {
-        document.getElementById("header_sub_text").innerText = dhtemp + dhtxtArr[dhi]+ "|";
-        dhtemp = dhtemp + dhtxtArr[dhi];
-        dhi++;
-        setTimeout(descriptionSubHeaderWrite, dhspeed);
-        }else{
-        document.getElementById("header_sub_text").innerHTML = textContent;
-        
+    let timeRunning = 3000 
+    let timeAutoNext = 7000
+
+    nextBtn.onclick = function(){
+        showSlider('next')
+    }
+
+    prevBtn.onclick = function(){
+        showSlider('prev')
+    }
+
+    let runTimeOut 
+
+    let runNextAuto = setTimeout(() => {
+        nextBtn.click()
+    }, timeAutoNext)
+
+
+    function resetTimeAnimation() {
+        runningTime.style.animation = 'none'
+        runningTime.offsetHeight /* trigger reflow */
+        runningTime.style.animation = null 
+        runningTime.style.animation = 'runningTime 7s linear 1 forwards'
+    }
+
+
+    function showSlider(type) {
+        let sliderItemsDom = list.querySelectorAll('.carousel .list .item')
+        if(type === 'next'){
+            list.appendChild(sliderItemsDom[0])
+            carousel.classList.add('next')
+        } else{
+            list.prepend(sliderItemsDom[sliderItemsDom.length - 1])
+            carousel.classList.add('prev')
         }
-    }
-    descriptionSubHeaderWrite();
-    }
+
+        clearTimeout(runTimeOut)
+
+        runTimeOut = setTimeout( () => {
+            carousel.classList.remove('next')
+            carousel.classList.remove('prev')
+        }, timeRunning)
 
 
-function descriptionHeader(textContent){
-    let dhi = 0;
-    let dhtxt = textContent;
-    let dhtxtArr =dhtxt.split(""); 
-    let dhspeed = 50;
-    let dhtemp=" ";
-    function descriptionHeaderWrite(){
-        if (dhi < dhtxt.length) {
-        document.getElementById("header_text").innerText = dhtemp + dhtxtArr[dhi]+ "|";
-        dhtemp = dhtemp + dhtxtArr[dhi];
-        dhi++;
-        setTimeout(descriptionHeaderWrite, dhspeed);
-        }else{
-        document.getElementById("header_text").innerHTML = textContent;
-        descriptionSubHeader("Indulge in the finest treatments and the ultimate relaxation at our Spa. Let us pamper you.")
-        }
-    }
-    descriptionHeaderWrite();
+        clearTimeout(runNextAuto)
+        runNextAuto = setTimeout(() => {
+            nextBtn.click()
+        }, timeAutoNext)
+
+        resetTimeAnimation() // Reset the running time animation
     }
 
-    descriptionHeader("Your Luxury Spa Experience Awaits")
-
-
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    });
-
-    // Disable DevTools Shortcuts
-    document.addEventListener('keydown', function(e) {
-      // Disable F12
-      if (e.keyCode === 123) {
-        e.preventDefault();
-      }
-
-      // Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
-      if (e.ctrlKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 85 || e.keyCode === 83)) {
-        e.preventDefault();
-        alert('This action is disabled on this site.');
-      }
-
-      // Disable Ctrl+P (Print)
-      if (e.ctrlKey && e.keyCode === 80) {
-        e.preventDefault();
-        alert('Printing is disabled on this site.');
-      }
-    });
-
-
-
-
-</script>
+    // Start the initial animation 
+    resetTimeAnimation()
+    </script>
 </body>
 </html>
