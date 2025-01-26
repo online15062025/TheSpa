@@ -1104,6 +1104,31 @@ a:hover{
 
     // Start the initial animation 
     resetTimeAnimation()
+
+
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable DevTools Shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Disable F12
+      if (e.keyCode === 123) {
+        e.preventDefault();
+      }
+
+      // Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
+      if (e.ctrlKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 85 || e.keyCode === 83)) {
+        e.preventDefault();
+        alert('This action is disabled on this site.');
+      }
+
+      // Disable Ctrl+P (Print)
+      if (e.ctrlKey && e.keyCode === 80) {
+        e.preventDefault();
+        alert('Printing is disabled on this site.');
+      }
+    });
     </script>
 </body>
 </html>
